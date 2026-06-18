@@ -39,36 +39,6 @@ if (input && button) {
 
 
 /* =========================================================
-   BIOGRAPHY
-========================================================= */
-const leftPanel = document.getElementById("aboutLeft");
-
-if (leftPanel) {
-  const dots = document.querySelectorAll(".dot");
-  const images = document.querySelectorAll(".about-right img");
-
-  function activate(i) {
-    dots.forEach(d => d.classList.remove("active"));
-    images.forEach(img => img.classList.remove("active"));
-    if (dots[i]) dots[i].classList.add("active");
-    if (images[i]) images[i].classList.add("active");
-  }
-
-  leftPanel.addEventListener("scroll", () => {
-    const index = Math.round(leftPanel.scrollTop / leftPanel.clientHeight);
-    activate(index);
-  });
-
-  dots.forEach(dot => {
-    dot.addEventListener("click", () => {
-      const i = dot.dataset.index;
-      leftPanel.scrollTo({ top: i * leftPanel.clientHeight, behavior: "smooth" });
-    });
-  });
-}
-
-
-/* =========================================================
    TICKET SYSTEM
 ========================================================= */
 let selected = null;
@@ -109,28 +79,24 @@ function buyTicket() {
   const qty = parseInt(count.value);
   if (!qty || qty < 1 || qty > 15) { document.getElementById("countErr").innerText = "Enter 1–15 tickets"; valid = false; }
   if (!selected) { document.getElementById("message").innerText = "Please select a ticket type."; valid = false; }
-  if (!selectedDate) { document.getElementById("dateErr").innerText = "Please select a date"; valid = false; }
 
   if (!valid) return;
 
   const total = qty * selected.price;
   document.getElementById("message").innerText =
-    `Success! ${qty} ${selected.type} ticket(s) on ${selectedDate.getDate()} ${CAL_MONTHS[selectedDate.getMonth()]} ${selectedDate.getFullYear()}. Total: €${total}`;
+    `Success! ${qty} ${selected.type} ticket(s) reserved. Total: €${total}`;
 }
-
 
 
 /* =========================================================
    SHOP
 ========================================================= */
-window.addEventListener('DOMContentLoaded', () => {
-  window._cartCount = 0;
-  window._cartTotal = 0;
-});
+let cartCount = 0;
+let cartTotal = 0;
 
 function addToCart(btn, name, price) {
-  window._cartCount = (window._cartCount || 0) + 1;
-  window._cartTotal = (window._cartTotal || 0) + parseFloat(price);
+  cartCount++;
+  cartTotal += parseFloat(price);
   btn.textContent = 'Added ✓';
   btn.classList.add('added');
   setTimeout(() => { btn.textContent = 'Add to Cart'; btn.classList.remove('added'); }, 1500);
@@ -140,8 +106,8 @@ function addToCart(btn, name, price) {
   const barEl   = document.getElementById('cartBar');
   const confEl  = document.getElementById('shopConfirm');
 
-  if (countEl) countEl.textContent = window._cartCount;
-  if (totalEl) totalEl.textContent = '€' + window._cartTotal.toFixed(2);
+  if (countEl) countEl.textContent = cartCount;
+  if (totalEl) totalEl.textContent = '€' + cartTotal.toFixed(2);
   if (barEl)   barEl.classList.add('visible');
   if (confEl)  { confEl.textContent = '"' + name + '" added to your cart.'; setTimeout(() => { confEl.textContent = ''; }, 2500); }
 }
@@ -155,33 +121,24 @@ function filterProducts(category, btn) {
 }
 
 function checkout() {
-  if (!window._cartCount) return;
+  if (!cartCount) return;
   const bar = document.getElementById('cartBar');
   if (!bar) return;
   bar.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:1.1rem;color:#c9a84c;text-align:center;width:100%;">Order placed. Expect the unexpected. — Q.T.</p>';
-  window._cartCount = 0;
-  window._cartTotal = 0;
+  cartCount = 0;
+  cartTotal = 0;
   setTimeout(() => { bar.classList.remove('visible'); }, 3000);
 }
 
 
-
-
-
-
-
 /* =========================================================
-   LOADER — must be last
+   LOADER
 ========================================================= */
 window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
   if (!loader) return;
   setTimeout(() => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        loader.style.opacity = "0";
-        setTimeout(() => loader.remove(), 1000);
-      });
-    });
+    loader.style.opacity = "0";
+    setTimeout(() => loader.remove(), 1000);
   }, 1500);
 });
