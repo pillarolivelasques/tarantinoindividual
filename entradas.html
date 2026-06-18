@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+  <title>Ticket Website</title>
+     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    
+</head>
+<body>
+  
+    
+
+    <header>
+
+        <a href="index.html">Tarantino Experience</a>
+       <i class="fa-solid fa-bars hamburguesa" onclick="openMenu()"></i>
+
+    <nav id="menu">
+      
+      <ul>
+        <li>
+          <a href="bio.html" onclick="closeMenu()">About</a>
+        </li>
+        <li>
+          <a href="movies.html" onclick="closeMenu()">Movies</a>
+        </li>
+        <li>
+          <a href="exp.html" onclick="closeMenu()">Tarantino Experience</a>
+        </li>
+        <li>
+          <a href="entradas.html" onclick="closeMenu()">Tickets</a>
+        </li>
+        <li>
+          <a href="shop.html" onclick="closeMenu()">Shop</a>
+        </li>
+        <li>
+          <a href="contacts.html" onclick="closeMenu()">Contact</a>
+        </li>
+      </ul>
+      <i class="fa-solid fa-times cerrar" onclick="closeMenu()"></i>
+    </nav>
+
+
+
+
+    </header>
+ <div class="ticket-cont">
+
+  <h1>Buy Your Ticket</h1>
+
+  <div class="tickets">
+
+    <div class="card">
+      <h2>Standard</h2>
+      <p>Basic Entry</p>
+      <h3>€25</h3>
+      <button onclick="selectTicket('Standard',25)">
+        Select
+      </button>
+    </div>
+
+    <div class="card deluxe">
+      <h2>Deluxe</h2>
+      <p>Better Seats </p>
+      <h3>€50</h3>
+      <button onclick="selectTicket('Deluxe',50)">
+        Select
+      </button>
+    </div>
+
+    <div class="card premium">
+      <h2>Premium</h2>
+      <p>VIP Access </p>
+      <h3>€80</h3>
+      <button onclick="selectTicket('Premium',80)">
+        Select
+      </button>
+    </div>
+
+  </div>
+
+<div class="form-box">
+  <h2>Customer Information</h2>
+  <input type="text" id="firstName" placeholder="First Name">
+  <span class="error" id="firstErr"></span>
+  <input type="text" id="lastName" placeholder="Last Name">
+  <span class="error" id="lastErr"></span>
+  <input type="email" id="email" placeholder="Email">
+  <span class="error" id="emailErr"></span>
+  <input type="number" id="ticketCount" placeholder="Number of Tickets" min="1" max="15">
+  <span class="error" id="countErr"></span>
+
+ 
+
+  <button onclick="buyTicket()">Buy Ticket</button>
+</div>
+<div class="result">
+  <h2 id="message"></h2>
+</div>
+    
+<footer>
+
+  <div class="footer-column">
+
+    <h3>Quentin Tarantino</h3>
+
+    <p>©2026 Quentin Tarantino</p>
+    <p>All rights reserved</p>
+
+    <div class="socials">
+
+      <a href="#">FB</a>
+      <a href="#">IG</a>
+      <a href="#">TW</a>
+      <a href="#">YT</a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-column">
+
+    <h3>Legal Notice</h3>
+
+    <a href="#">General Company Info</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Cookies Policy</a>
+
+  </div>
+
+  <div class="footer-column">
+
+    <h3>Menu</h3>
+
+    <a href="bio.html">About</a>
+    <a href="movies.html">Movies</a>
+    <a href="exp.html">Tarantino E.</a>
+    <a href="entradas.html">Tickets</a>
+    <a href="shop.html">Shop</a>
+    <a href="contacts.html">Contacts</a>
+
+  </div>
+
+</footer>
+       <script src="js/script.js"></script>
+    
+</body>
+</html>

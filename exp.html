@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Experience — Tarantino Experience</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+  <script src="js/script.js"></script>
+
+  <header>
+    <a href="index.html">Tarantino Experience</a>
+    <i class="fa-solid fa-bars hamburguesa" onclick="openMenu()"></i>
+    <nav id="menu">
+      <ul>
+        <li><a href="bio.html" onclick="closeMenu()">About</a></li>
+        <li><a href="movies.html" onclick="closeMenu()">Movies</a></li>
+        <li><a href="exp.html" onclick="closeMenu()">Tarantino Experience</a></li>
+        <li><a href="entradas.html" onclick="closeMenu()">Tickets</a></li>
+        <li><a href="shop.html" onclick="closeMenu()">Shop</a></li>
+        <li><a href="contacts.html" onclick="closeMenu()">Contact</a></li>
+      </ul>
+      <i class="fa-solid fa-times cerrar" onclick="closeMenu()"></i>
+    </nav>
+  </header>
+
+  <section class="exp-hero">
+    <h1>THE<br><span>EXPERIENCE</span></h1>
+    <p>
+      An immersive exhibition dedicated to the iconic world of Quentin Tarantino.
+      Through his most celebrated films, original props, and behind-the-scenes material,
+      visitors will step inside the cinematic universe of one of the most visionary
+      directors of our time.
+    </p>
+    <a href="entradas.html" class="btn btn-red">Get Your Tickets</a>
+  </section>
+
+  <div class="exp-grid reveal">
+
+    <div class="exp-card">
+      <div class="exp-card-num">01</div>
+      <h3>Film Rooms</h3>
+      <p>
+        Each of Tarantino's nine films has its own dedicated room. Immersive 
+        environments built around iconic scenes, dialogue loops, and original 
+        costume replicas.
+      </p>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-num">02</div>
+      <h3>Original Props</h3>
+      <p>
+        Authentic production materials on loan from private collections — 
+        scripts, storyboards, and objects directly tied to the making of 
+        films like <em>Pulp Fiction</em> and <em>Kill Bill</em>.
+      </p>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-num">03</div>
+      <h3>Screening Room</h3>
+      <p>
+        A 40-seat cinema showing curated short films and documentary footage 
+        about Tarantino's creative process, influences, and cinematic obsessions.
+      </p>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-num">04</div>
+      <h3>Photo Zones</h3>
+      <p>
+        Step into the world of your favourite film. Recreated sets from 
+        <em>Pulp Fiction</em>'s Jack Rabbit Slim's diner and <em>Reservoir Dogs</em> 
+        warehouse — available for photos and videos.
+      </p>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-num">05</div>
+      <h3>The Archive</h3>
+      <p>
+        A deep-dive library section with books, posters, and reference material 
+        curated directly from Tarantino's personal influences — from spaghetti 
+        westerns to Hong Kong martial arts cinema.
+      </p>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-num">06</div>
+      <h3>Shop & Bar</h3>
+      <p>
+        Exclusive merchandise designed for the exhibition, alongside a themed 
+        bar inspired by the films. Named after iconic drinks and characters 
+        from the Tarantinoverse.
+      </p>
+    </div>
+
+  </div>
+
+  <section class="quote reveal">
+    <blockquote>
+      "I steal from every single movie ever made. If my work has anything, it's that I'm taking this from this and that from that and mixing them together."
+    </blockquote>
+  </section>
+
+  <section class="exp-location reveal">
+    <div class="exp-location-text">
+      <h2>Find Us</h2>
+      <p>
+        The Tarantino Experience is hosted at the Victoria and Albert Museum in 
+        London — one of the world's greatest museums of art, design, and 
+        performance. The exhibition runs throughout 2026.
+      </p>
+      <p>
+        Open Tuesday to Sunday, 10:00–20:00. Late nights on Fridays until 22:00.
+      </p>
+      <div class="exp-address">
+        Victoria and Albert Museum<br>
+        Cromwell Road, South Kensington<br>
+        London SW7 2RL<br>
+        United Kingdom
+      </div>
+      <a href="entradas.html" class="btn btn-gold">Buy Tickets →</a>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=Victoria+and+Albert+Museum+London&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-column">
+      <h3>Quentin Tarantino</h3>
+      <p>©2026 Quentin Tarantino</p>
+      <p>All rights reserved</p>
+      <div class="socials">
+        <a href="#">FB</a>
+        <a href="#">IG</a>
+        <a href="#">TW</a>
+        <a href="#">YT</a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>Legal Notice</h3>
+      <a href="#">General Company Info</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookies Policy</a>
+    </div>
+    <div class="footer-column">
+      <h3>Menu</h3>
+      <a href="bio.html">About</a>
+      <a href="movies.html">Movies</a>
+      <a href="exp.html">Tarantino E.</a>
+      <a href="entradas.html">Tickets</a>
+      <a href="shop.html">Shop</a>
+      <a href="contacts.html">Contacts</a>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
