@@ -1,6 +1,6 @@
-/* =========================================================
+/*
    MENU
-========================================================= */
+ */
 function openMenu() {
   document.getElementById('menu').classList.add('open');
 }
@@ -27,9 +27,9 @@ document.addEventListener('keydown', function(e) {
 });
 
 
-/* =========================================================
+/*
    TICKET SYSTEM
-========================================================= */
+ */
 var selectedType  = null;
 var selectedPrice = null;
 
@@ -110,9 +110,9 @@ function buyTicket() {
 }
 
 
-/* =========================================================
+/* 
    SHOP
-========================================================= */
+ */
 var cartCount = 0;
 var cartTotal = 0;
 
@@ -171,9 +171,9 @@ function checkout() {
 }
 
 
-/* =========================================================
+/* 
    LOADER
-========================================================= */
+ */
 window.addEventListener('load', function() {
   var loader = document.getElementById('loader');
   if (!loader) return;

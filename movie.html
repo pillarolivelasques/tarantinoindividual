@@ -110,15 +110,13 @@
 
   <script src="js/movies-data.js"></script>
   <script>
-    // The link in movies.html looks like: movie.html?m=pulp
-    // We just need the part after "m=".
-    var query = window.location.search;       // "?m=pulp"
-    var slug  = query.split('m=')[1];          // "pulp"
+    
+
+    var query = window.location.search;       
+    var slug  = query.split('m=')[1];         
     var movie = MOVIES[slug];
 
     if (!movie) {
-      // Unknown or missing slug -> send back to the catalogue
-      // instead of showing a broken page.
       window.location.href = 'movies.html';
     } else {
 
@@ -147,8 +145,6 @@
           '<span class="credit-value">' + movie.stars.join('<br>') + '</span>' +
         '</div>';
 
-      // Build the cast grid one item at a time, same pattern as the
-      // forEach loops already used in script.js.
       var castHTML = '';
       movie.cast.forEach(function (member) {
         castHTML +=
