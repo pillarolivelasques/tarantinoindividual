@@ -172,4 +172,23 @@ function checkout() {
   }, 3000);
 }
 
+/*
+   CONTACT FORM
+ */
+function submitForm() {
+  var name    = document.querySelector('#contactForm [name="name"]');
+  var email   = document.querySelector('#contactForm [name="email"]');
+  var message = document.querySelector('#contactForm [name="message"]');
+  var msg     = document.getElementById('formMsg');
+
+  if (!name.value.trim() || !email.value.includes('@') || !message.value.trim()) {
+    msg.style.color = 'var(--red)';
+    msg.textContent = 'Please fill in all fields correctly.';
+    return;
+  }
+
+  msg.style.color = 'var(--gold)';
+  msg.textContent = 'Message sent. We will get back to you soon.';
+  document.getElementById('contactForm').reset();
+}
 
