@@ -42,9 +42,8 @@ function selectTicket(type, price, clickedCard) {
     card.classList.remove('selected');
   });
 
-  clickedCard.classList.add('selected'); // ✅ marca o clicado
-  // ...resto igual
-}
+  clickedCard.classList.add('selected'); // ✅
+
   var selectedText = document.getElementById('selectedText');
   if (selectedText) {
     selectedText.innerText = 'Selected: ' + type + ' (€' + price + ' each)';
