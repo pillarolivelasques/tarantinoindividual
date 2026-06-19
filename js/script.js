@@ -33,7 +33,7 @@ document.addEventListener('keydown', function(e) {
 var selectedType  = null;
 var selectedPrice = null;
 
-function selectTicket(type, price) {
+function selectTicket(type, price, clickedCard) {
   selectedType  = type;
   selectedPrice = price;
 
@@ -42,6 +42,9 @@ function selectTicket(type, price) {
     card.classList.remove('selected');
   });
 
+  clickedCard.classList.add('selected'); // ✅ marca o clicado
+  // ...resto igual
+}
   var selectedText = document.getElementById('selectedText');
   if (selectedText) {
     selectedText.innerText = 'Selected: ' + type + ' (€' + price + ' each)';
