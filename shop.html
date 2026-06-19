@@ -1,6 +1,4 @@
-
- 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,11 +6,20 @@
   <title>Shop — Tarantino Experience</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+  </style>
 </head>
 
 <body>
-  <script src="js/script.js"></script>
- <header>
+  <header>
     <a href="index.html">Tarantino Experience</a>
     <i class="fa-solid fa-bars hamburguesa" onclick="openMenu()"></i>
     <nav id="menu">
@@ -35,139 +42,125 @@
 
   <div class="shop-filters">
     <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('tshirt', this)">T-Shirts</button>
-    <button class="filter-btn" onclick="filterProducts('hoodie', this)">Hoodies</button>
-    <button class="filter-btn" onclick="filterProducts('cap', this)">Caps</button>
-    <button class="filter-btn" onclick="filterProducts('mug', this)">mugs</button>
+    <button class="filter-btn" onclick="filterProducts('clothing', this)">Clothing</button>
+    <button class="filter-btn" onclick="filterProducts('accessories', this)">Accessories</button>
   </div>
 
   <div class="shop-grid">
 
-    <div class="product-card" data-category="hoodie">
+    <div class="product-card" data-category="clothing">
       <div class="product-img">
         <img src="img/Merchand Tarantino/HOODIE 2.webp" alt="Pulp Fiction Tee">
-        <span class="product-tag">Hoodie</span>
+        <span class="product-tag">Best Seller</span>
       </div>
       <div class="product-info">
-        <div class="product-name">Mia Lipgloss</div>
-        <div class="product-desc">Black heavyweight cotton. Pulp Fiction iconic scene print. Oversized fit.</div>
+        <div class="product-name">Pulp Fiction Retro Hoodie</div>
+        <div class="product-desc">100% Organic Cotton. Vintage wash black shirt with iconic print.</div>
         <div class="product-bottom">
-          <span class="product-price">€75</span>
-          <button class="add-btn" onclick="addToCart(this, 'The Royale With Cheese Tee', 75.99)">Add to Cart</button>
+          <span class="product-price">€35.00</span>
+          <button class="btn" onclick="addToCart(this, 'Pulp Fiction Retro Hoodie', 35.00)">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="tshirt">
+    <div class="product-card" data-category="accessories">
       <div class="product-img">
-        <img src="img/Merchand Tarantino/KillBill List.webp" alt="Fox Force Five Tee">
-        <span class="product-tag">T-Shirt</span>
+        <img src="img/Merchand Tarantino/TOTE BAG.webp" alt="Tarantino Experience Tote Bag">
       </div>
       <div class="product-info">
-        <div class="product-name">Killing List</div>
-        <div class="product-desc">Washed white cotton. Minimal KillBill graphic on the chest. Slim fit.</div>
+        <div class="product-name">Tarantino Experience Tote</div>
+        <div class="product-desc">Cream eco-friendly canvas tote. Double-stitched handles.</div>
         <div class="product-bottom">
-          <span class="product-price">€39.99</span>
-          <button class="add-btn" onclick="addToCart(this, 'Fox Force Five Tee', 39.99)">Add to Cart</button>
+          <span class="product-price">€15.00</span>
+          <button class="btn" onclick="addToCart(this, 'Tarantino Experience Tote', 15.00)">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="hoodie">
+    <div class="product-card" data-category="clothing">
       <div class="product-img">
-        <img src="img/Merchand Tarantino/HOODIE 1.webp" alt="Basterds Hoodie">
-        <span class="product-tag">Hoodie</span>
+        <img src="img/Merchand Tarantino/HOODIE 1.webp" alt=" Hoodie">
+        <span class="product-tag">New</span>
       </div>
       <div class="product-info">
-        <div class="product-name"> Resistance </div>
-        <div class="product-desc">Inglorius Basterds — way to recognized a german from an allied Oversized.</div>
+        <div class="product-name"> Hoodie</div>
+        <div class="product-desc">Heavy-weight fleece.  Unisex fit.</div>
         <div class="product-bottom">
-          <span class="product-price">€68.99</span>
-          <button class="add-btn" onclick="addToCart(this, 'Crazy 88 Hoodie', 68.99)">Add to Cart</button>
+          <span class="product-price">€65.00</span>
+          <button class="btn" onclick="addToCart(this, 'Kill Bill Hoodie', 65.00)">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="mug">
+    <div class="product-card" data-category="accessories">
       <div class="product-img">
-        <img src="img/Merchand Tarantino/Tarantinocup.webp" alt="Written and Directed Hoodie">
-        <span class="product-tag">Mug</span>
+        <img src="img/Merchand Tarantino/GORRAkill.webp" alt="Kill bill Cap">
       </div>
       <div class="product-info">
-        <div class="product-name">Written & Directed Mug</div>
-        <div class="product-desc">"Written and Directed by Quentin Tarantino" Black embroidery and white.</div>
+        <div class="product-name">Kill Bill Cap</div>
+        <div class="product-desc">Structured  cap in red. Adjustable snapback closure.</div>
         <div class="product-bottom">
-          <span class="product-price">€30</span>
-          <button class="add-btn" onclick="addToCart(this, 'Written & Directed Hoodie', 30)">Add to Cart</button>
+          <span class="product-price">€25.00</span>
+          <button class="btn" onclick="addToCart(this, 'Reservoir Dogs Cap', 25.00)">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="cap">
+  
+
+    <div class="product-card" data-category="accessories">
       <div class="product-img">
-        <img src="img/Merchand Tarantino/GORRAkill.webp" alt="Directed By Cap">
-        <span class="product-tag">Cap</span>
+        <img src="img/Merchand Tarantino/Hooly.webp.png" alt="Enamel Pin Set">
+        <span class="product-tag">Limited</span>
       </div>
       <div class="product-info">
-        <div class="product-name">Sliced</div>
-        <div class="product-desc">"Kill Bill" embroidered. White corduroy. Adjustable strap.</div>
+        <div class="product-name">Enamel Pin Set</div>
+        <div class="product-desc">Set of 5 collectible pins. One for each iconic film.</div>
         <div class="product-bottom">
-          <span class="product-price">€35.99</span>
-          <button class="add-btn" onclick="addToCart(this, 'Directed By Dad Cap', 35.99)">Add to Cart</button>
+          <span class="product-price">€20.00</span>
+          <button class="btn" onclick="addToCart(this, 'Enamel Pin Set', 20.00)">Add to Cart</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card" data-category="Tote">
+    <div class="product-card" data-category="accessories">
       <div class="product-img">
-        <img src="img/Merchand Tarantino/TOTE BAG.webp" alt="Tarantino Tote">
-        <span class="product-tag">Tote bag</span>
+        <img src="img/Merchand Tarantino/Tarantinocup.webp" alt="Mug">
       </div>
       <div class="product-info">
-        <div class="product-name">Tarantino Experience</div>
-        <div class="product-desc">Cream Ecofrendly . Medium size.</div>
+        <div class="product-name">Tarantino Mug</div>
+        <div class="product-desc">White ceramic mug, 200 gsm.</div>
         <div class="product-bottom">
-          <span class="product-price">€45</span>
-          <button class="add-btn" onclick="addToCart(this, 'The Iconic Filmmaker & His Work', 45)">Add to Cart</button>
+          <span class="product-price">€45.00</span>
+          <button class="btn" onclick="addToCart(this, 'Tarantino Mug', 45.00)">Add to Cart</button>
         </div>
       </div>
-      
     </div>
 
   </div>
-
-  <p class="shop-confirm" id="shopConfirm"></p>
-
   <div class="cart-bar" id="cartBar">
     <div class="cart-info"><span id="cartCount">0</span> item(s) in your cart</div>
     <div class="cart-total" id="cartTotal">€0.00</div>
-    <button class="checkout-btn" onclick="checkout()">Checkout →</button>
+    <button class="btn" onclick="checkout()" style="border-color:#fff; color:#fff;">Checkout →</button>
   </div>
 
   <footer>
     <div class="footer-column">
       <h3>Quentin Tarantino</h3>
-      <p>©2026 Quentin Tarantino</p>
-      <p>All rights reserved</p>
-      <div class="socials">
-        <a href="#">FB</a><a href="#">IG</a><a href="#">TW</a><a href="#">YT</a>
-      </div>
+      <p>©2026 Quentin Tarantino</p><p>All rights reserved</p>
+      <div class="socials"><a href="#">FB</a><a href="#">IG</a><a href="#">TW</a><a href="#">YT</a></div>
     </div>
     <div class="footer-column">
       <h3>Legal Notice</h3>
-      <a href="#">General Company Info</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Cookies Policy</a>
+      <a href="#">General Company Info</a><a href="#">Privacy Policy</a><a href="#">Cookies Policy</a>
     </div>
     <div class="footer-column">
       <h3>Menu</h3>
-      <a href="bio.html">About</a>
-      <a href="movies.html">Movies</a>
-      <a href="exp.html">Tarantino E.</a>
-      <a href="entradas.html">Tickets</a>
-      <a href="shop.html">Shop</a>
-      <a href="contacts.html">Contacts</a>
+      <a href="bio.html">About</a><a href="movies.html">Movies</a><a href="exp.html">Tarantino E.</a>
+      <a href="entradas.html">Tickets</a><a href="shop.html">Shop</a><a href="contacts.html">Contacts</a>
     </div>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

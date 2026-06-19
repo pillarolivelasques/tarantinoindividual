@@ -1,6 +1,6 @@
-/* =========================================================
+/*
    MENU
-========================================================= */
+ */
 function openMenu() {
   document.getElementById('menu').classList.add('open');
 }
@@ -10,8 +10,8 @@ function closeMenu() {
 }
 
 document.addEventListener('click', function(e) {
-  const menu = document.getElementById('menu');
-  const hamburger = document.querySelector('.hamburguesa');
+  var menu = document.getElementById('menu');
+  var hamburger = document.querySelector('.hamburguesa');
   if (!menu) return;
   if (menu.classList.contains('open') &&
       !menu.contains(e.target) &&
@@ -21,124 +21,166 @@ document.addEventListener('click', function(e) {
 });
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeMenu();
+  if (e.key === 'Escape') {
+    closeMenu();
+  }
 });
 
 
-/* =========================================================
-   CONTACT FORM
-========================================================= */
-const input = document.getElementById("messageInput");
-const button = document.getElementById("sendBtn");
-
-if (input && button) {
-  input.addEventListener("input", () => {
-    button.textContent = input.value.trim() !== "" ? "Send it 🚀" : "Send Message";
-  });
-}
-
-
-/* =========================================================
+/*
    TICKET SYSTEM
-========================================================= */
-let selected = null;
-let selectedCard = null;
+ */
+var selectedType  = null;
+var selectedPrice = null;
 
-function selectTicket(type, price, element) {
-  selected = { type, price };
-  if (selectedCard) selectedCard.classList.remove("selected");
-  selectedCard = element;
-  selectedCard.classList.add("selected");
-  document.getElementById("selectedText").innerText = `Selected: ${type} (€${price} each)`;
+function selectTicket(type, price) {
+  selectedType  = type;
+  selectedPrice = price;
+
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+    card.classList.remove('selected');
+  });
+
+  var selectedText = document.getElementById('selectedText');
+  if (selectedText) {
+    selectedText.innerText = 'Selected: ' + type + ' (€' + price + ' each)';
+  }
   updateTotal();
 }
 
 function updateTotal() {
-  const count = parseInt(document.getElementById("ticketCount").value) || 0;
-  if (!selected) { document.getElementById("totalPrice").innerText = "Total: €0"; return; }
-  document.getElementById("totalPrice").innerText = `Total: €${count * selected.price}`;
+  var countInput = document.getElementById('ticketCount');
+  var totalEl    = document.getElementById('totalPrice');
+  if (!countInput || !totalEl) return;
+
+  var count = parseInt(countInput.value) || 0;
+  if (!selectedPrice) {
+    totalEl.innerText = 'Total: €0';
+    return;
+  }
+  totalEl.innerText = 'Total: €' + (count * selectedPrice);
 }
 
-const ticketInput = document.getElementById("ticketCount");
-if (ticketInput) ticketInput.addEventListener("input", updateTotal);
+var ticketInput = document.getElementById('ticketCount');
+if (ticketInput) {
+  ticketInput.addEventListener('input', updateTotal);
+}
 
 function buyTicket() {
-  let valid = true;
-  const first = document.getElementById("firstName");
-  const last  = document.getElementById("lastName");
-  const email = document.getElementById("email");
-  const count = document.getElementById("ticketCount");
+  var valid = true;
+  var first = document.getElementById('firstName');
+  var last  = document.getElementById('lastName');
+  var email = document.getElementById('email');
+  var count = document.getElementById('ticketCount');
 
-  document.querySelectorAll(".error").forEach(e => e.innerText = "");
-  document.getElementById("message").innerText = "";
+  document.querySelectorAll('.error').forEach(function(e) {
+    e.innerText = '';
+  });
+  document.getElementById('message').innerText = '';
 
-  if (!first.value.trim()) { document.getElementById("firstErr").innerText = "First name required"; valid = false; }
-  if (!last.value.trim())  { document.getElementById("lastErr").innerText  = "Last name required";  valid = false; }
-  if (!email.value.includes("@")) { document.getElementById("emailErr").innerText = "Invalid email"; valid = false; }
+  if (!first.value.trim()) {
+    document.getElementById('firstErr').innerText = 'First name required';
+    valid = false;
+  }
+  if (!last.value.trim()) {
+    document.getElementById('lastErr').innerText = 'Last name required';
+    valid = false;
+  }
+  if (!email.value.includes('@')) {
+    document.getElementById('emailErr').innerText = 'Invalid email';
+    valid = false;
+  }
 
-  const qty = parseInt(count.value);
-  if (!qty || qty < 1 || qty > 15) { document.getElementById("countErr").innerText = "Enter 1–15 tickets"; valid = false; }
-  if (!selected) { document.getElementById("message").innerText = "Please select a ticket type."; valid = false; }
+  var qty = parseInt(count.value);
+  if (!qty || qty < 1 || qty > 15) {
+    document.getElementById('countErr').innerText = 'Enter 1–15 tickets';
+    valid = false;
+  }
+  if (!selectedType) {
+    document.getElementById('message').innerText = 'Please select a ticket type.';
+    valid = false;
+  }
 
   if (!valid) return;
 
-  const total = qty * selected.price;
-  document.getElementById("message").innerText =
-    `Success! ${qty} ${selected.type} ticket(s) reserved. Total: €${total}`;
+  var total = qty * selectedPrice;
+  document.getElementById('message').innerText =
+    'Success! ' + qty + ' ' + selectedType + ' ticket(s) reserved. Total: €' + total;
 }
 
 
-/* =========================================================
+/* 
    SHOP
-========================================================= */
-let cartCount = 0;
-let cartTotal = 0;
+ */
+var cartCount = 0;
+var cartTotal = 0;
 
 function addToCart(btn, name, price) {
-  cartCount++;
-  cartTotal += parseFloat(price);
+  cartCount = cartCount + 1;
+  cartTotal = cartTotal + parseFloat(price);
+
   btn.textContent = 'Added ✓';
   btn.classList.add('added');
-  setTimeout(() => { btn.textContent = 'Add to Cart'; btn.classList.remove('added'); }, 1500);
+  setTimeout(function() {
+    btn.textContent = 'Add to Cart';
+    btn.classList.remove('added');
+  }, 1500);
 
-  const countEl = document.getElementById('cartCount');
-  const totalEl = document.getElementById('cartTotal');
-  const barEl   = document.getElementById('cartBar');
-  const confEl  = document.getElementById('shopConfirm');
+  var countEl = document.getElementById('cartCount');
+  var totalEl = document.getElementById('cartTotal');
+  var barEl   = document.getElementById('cartBar');
+  var confEl  = document.getElementById('shopConfirm');
 
   if (countEl) countEl.textContent = cartCount;
   if (totalEl) totalEl.textContent = '€' + cartTotal.toFixed(2);
   if (barEl)   barEl.classList.add('visible');
-  if (confEl)  { confEl.textContent = '"' + name + '" added to your cart.'; setTimeout(() => { confEl.textContent = ''; }, 2500); }
+  if (confEl) {
+    confEl.textContent = '"' + name + '" added to your cart.';
+    setTimeout(function() {
+      confEl.textContent = '';
+    }, 2500);
+  }
 }
 
 function filterProducts(category, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(function(b) {
+    b.classList.remove('active');
+  });
   btn.classList.add('active');
-  document.querySelectorAll('.product-card').forEach(card => {
-    card.classList.toggle('hidden', category !== 'all' && card.dataset.category !== category);
+
+  document.querySelectorAll('.product-card').forEach(function(card) {
+    if (category === 'all' || card.dataset.category === category) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
   });
 }
 
 function checkout() {
   if (!cartCount) return;
-  const bar = document.getElementById('cartBar');
+  var bar = document.getElementById('cartBar');
   if (!bar) return;
-  bar.innerHTML = '<p style="font-family:\'Cormorant Garamond\',serif;font-style:italic;font-size:1.1rem;color:#c9a84c;text-align:center;width:100%;">Order placed. Expect the unexpected. — Q.T.</p>';
+  bar.innerHTML = '<p style="color:#c9a84c;text-align:center;width:100%;">Order placed. Expect the unexpected. — Q.T.</p>';
   cartCount = 0;
   cartTotal = 0;
-  setTimeout(() => { bar.classList.remove('visible'); }, 3000);
+  setTimeout(function() {
+    bar.classList.remove('visible');
+  }, 3000);
 }
 
 
-/* =========================================================
+/* 
    LOADER
-========================================================= */
-window.addEventListener("load", function () {
-  const loader = document.getElementById("loader");
+ */
+window.addEventListener('load', function() {
+  var loader = document.getElementById('loader');
   if (!loader) return;
-  setTimeout(() => {
-    loader.style.opacity = "0";
-    setTimeout(() => loader.remove(), 1000);
+  setTimeout(function() {
+    loader.style.opacity = '0';
+    setTimeout(function() {
+      loader.remove();
+    }, 1000);
   }, 1500);
 });

@@ -8,24 +8,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
-  <script src="js/script.js"></script>
 
   <header>
     <a href="index.html">Tarantino Experience</a>
     <i class="fa-solid fa-bars hamburguesa" onclick="openMenu()"></i>
     <nav id="menu">
       <ul>
-        <li><a href="bio.html" onclick="closeMenu()">About</a></li>
-        <li><a href="movies.html" onclick="closeMenu()">Movies</a></li>
-        <li><a href="exp.html" onclick="closeMenu()">Tarantino Experience</a></li>
+        <li><a href="bio.html"      onclick="closeMenu()">About</a></li>
+        <li><a href="movies.html"   onclick="closeMenu()">Movies</a></li>
+        <li><a href="exp.html"      onclick="closeMenu()">Tarantino Experience</a></li>
         <li><a href="entradas.html" onclick="closeMenu()">Tickets</a></li>
-        <li><a href="shop.html" onclick="closeMenu()">Shop</a></li>
+        <li><a href="shop.html"     onclick="closeMenu()">Shop</a></li>
         <li><a href="contacts.html" onclick="closeMenu()">Contact</a></li>
       </ul>
       <i class="fa-solid fa-times cerrar" onclick="closeMenu()"></i>
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="exp-hero">
     <h1>THE<br><span>EXPERIENCE</span></h1>
     <p>
@@ -37,14 +37,15 @@
     <a href="entradas.html" class="btn btn-red">Get Your Tickets</a>
   </section>
 
-  <div class="exp-grid reveal">
+  <!-- 6 CARDS -->
+  <div class="exp-grid">
 
     <div class="exp-card">
       <div class="exp-card-num">01</div>
       <h3>Film Rooms</h3>
       <p>
-        Each of Tarantino's nine films has its own dedicated room. Immersive 
-        environments built around iconic scenes, dialogue loops, and original 
+        Each of Tarantino's nine films has its own dedicated room. Immersive
+        environments built around iconic scenes, dialogue loops, and original
         costume replicas.
       </p>
     </div>
@@ -53,9 +54,9 @@
       <div class="exp-card-num">02</div>
       <h3>Original Props</h3>
       <p>
-        Authentic production materials on loan from private collections — 
-        scripts, storyboards, and objects directly tied to the making of 
-        films like <em>Pulp Fiction</em> and <em>Kill Bill</em>.
+        Authentic production materials on loan from private collections —
+        scripts, storyboards, and objects directly tied to the making of
+        films like Pulp Fiction and Kill Bill.
       </p>
     </div>
 
@@ -63,7 +64,7 @@
       <div class="exp-card-num">03</div>
       <h3>Screening Room</h3>
       <p>
-        A 40-seat cinema showing curated short films and documentary footage 
+        A 40-seat cinema showing curated short films and documentary footage
         about Tarantino's creative process, influences, and cinematic obsessions.
       </p>
     </div>
@@ -72,8 +73,8 @@
       <div class="exp-card-num">04</div>
       <h3>Photo Zones</h3>
       <p>
-        Step into the world of your favourite film. Recreated sets from 
-        <em>Pulp Fiction</em>'s Jack Rabbit Slim's diner and <em>Reservoir Dogs</em> 
+        Step into the world of your favourite film. Recreated sets from
+        Pulp Fiction's Jack Rabbit Slim's diner and Reservoir Dogs
         warehouse — available for photos and videos.
       </p>
     </div>
@@ -82,8 +83,8 @@
       <div class="exp-card-num">05</div>
       <h3>The Archive</h3>
       <p>
-        A deep-dive library section with books, posters, and reference material 
-        curated directly from Tarantino's personal influences — from spaghetti 
+        A deep-dive library section with books, posters, and reference material
+        curated directly from Tarantino's personal influences — from spaghetti
         westerns to Hong Kong martial arts cinema.
       </p>
     </div>
@@ -92,26 +93,28 @@
       <div class="exp-card-num">06</div>
       <h3>Shop & Bar</h3>
       <p>
-        Exclusive merchandise designed for the exhibition, alongside a themed 
-        bar inspired by the films. Named after iconic drinks and characters 
+        Exclusive merchandise designed for the exhibition, alongside a themed
+        bar inspired by the films. Named after iconic drinks and characters
         from the Tarantinoverse.
       </p>
     </div>
 
   </div>
 
-  <section class="quote reveal">
+  <section class="quote">
     <blockquote>
-      "I steal from every single movie ever made. If my work has anything, it's that I'm taking this from this and that from that and mixing them together."
+      "I steal from every single movie ever made. If my work has anything,
+      it's that I'm taking this from this and that from that and mixing them together."
     </blockquote>
   </section>
 
-  <section class="exp-location reveal">
+  <section class="exp-location">
+
     <div class="exp-location-text">
       <h2>Find Us</h2>
       <p>
-        The Tarantino Experience is hosted at the Victoria and Albert Museum in 
-        London — one of the world's greatest museums of art, design, and 
+        The Tarantino Experience is hosted at the Victoria and Albert Museum in
+        London — one of the world's greatest museums of art, design, and
         performance. The exhibition runs throughout 2026.
       </p>
       <p>
@@ -134,6 +137,7 @@
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
+
   </section>
 
   <footer>
@@ -165,13 +169,7 @@
     </div>
   </footer>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => obs.observe(el));
-  </script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>
