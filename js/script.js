@@ -33,7 +33,7 @@ document.addEventListener('keydown', function(e) {
 var selectedType  = null;
 var selectedPrice = null;
 
-function selectTicket(type, price) {
+function selectTicket(type, price, clickedCard) {
   selectedType  = type;
   selectedPrice = price;
 
@@ -41,6 +41,8 @@ function selectTicket(type, price) {
   cards.forEach(function(card) {
     card.classList.remove('selected');
   });
+
+  clickedCard.classList.add('selected'); // ✅
 
   var selectedText = document.getElementById('selectedText');
   if (selectedText) {
@@ -170,17 +172,23 @@ function checkout() {
   }, 3000);
 }
 
-
-/* 
-   LOADER
+/*
+   CONTACT FORM
  */
-window.addEventListener('load', function() {
-  var loader = document.getElementById('loader');
-  if (!loader) return;
-  setTimeout(function() {
-    loader.style.opacity = '0';
-    setTimeout(function() {
-      loader.remove();
-    }, 1000);
-  }, 1500);
-});
+function submitForm() {
+  var name    = document.querySelector('#contactForm [name="name"]');
+  var email   = document.querySelector('#contactForm [name="email"]');
+  var message = document.querySelector('#contactForm [name="message"]');
+  var msg     = document.getElementById('formMsg');
+
+  if (!name.value.trim() || !email.value.includes('@') || !message.value.trim()) {
+    msg.style.color = 'var(--red)';
+    msg.textContent = 'Please fill in all fields correctly.';
+    return;
+  }
+
+  msg.style.color = 'var(--gold)';
+  msg.textContent = 'Message sent. We will get back to you soon.';
+  document.getElementById('contactForm').reset();
+}
+

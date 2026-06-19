@@ -30,21 +30,21 @@
     <p id="selectedText" style="color: var(--gold); font-style: italic; margin-bottom: 20px;">Please select a ticket type below:</p>
 
     <div class="tickets">
-      <div class="card" onclick="selectTicket('General Admission', 25)">
+<div class="card" onclick="selectTicket('General Admission', 25, this)">
         <h2>General</h2>
         <p>Access to the main exhibition areas.</p>
         <h3>€25</h3>
         <button class="btn">Select</button>
       </div>
 
-      <div class="card deluxe" onclick="selectTicket('Deluxe Pack', 45)">
+<div class="card deluxe" onclick="selectTicket('Deluxe Pack', 45, this)">
         <h2>Deluxe</h2>
         <p>Exhibition access + official tote bag.</p>
         <h3>€45</h3>
         <button class="btn">Select</button>
       </div>
 
-      <div class="card premium" onclick="selectTicket('VIP Access', 75)">
+<div class="card premium" onclick="selectTicket('VIP Access', 75, this)">
         <h2>VIP</h2>
         <p>Full access + catalog + vintage poster.</p>
         <h3>€75</h3>
